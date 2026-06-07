@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>店舗Web運用管理ボード | Portfolio</title>
+  <meta name="description" content="店舗のWeb更新・勤務状況・広告数値・改善アクションを確認する管理画面ポートフォリオ" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===========================
+     Navigation
+     =========================== -->
+<nav class="nav">
+  <a href="#dashboard" class="nav-logo">
+    <div class="nav-logo-mark">WO</div>
+    <span>店舗Web運用</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#dashboard">ダッシュボード</a></li>
+    <li><a href="#attendance">出勤管理</a></li>
+    <li><a href="#webupdate">Web更新</a></li>
+    <li><a href="#ad">広告反響</a></li>
+    <li><a href="#banner">バナー管理</a></li>
+    <li><a href="#improvement">改善メモ</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <div class="nav-badge">
+      <span class="nav-badge-dot"></span>
+      管理画面サンプル
+    </div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#dashboard">ダッシュボード</a>
+  <a href="#attendance">出勤管理</a>
+  <a href="#webupdate">Web更新</a>
+  <a href="#ad">広告反響</a>
+  <a href="#banner">バナー管理</a>
+  <a href="#improvement">改善メモ</a>
+</nav>
+
+<main>
+
+<!-- ===========================
+     Dashboard
+     =========================== -->
+<section id="dashboard">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <img src="assets/dashboard-icon.svg" alt="" />
+      </div>
+      <div>
+        <div class="section-title">日次<span>確認ボード</span></div>
+        <div class="section-subtitle">本日の主要指標 — 2026年6月7日 10:30更新</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="ops-summary">
+      <div>
+        <div class="ops-summary-label">本日の確認方針</div>
+        <p class="ops-summary-text">
+          予約数は前日比で伸長。広告クリックは減少しているため、検索媒体のCV率維持とSNS導線の見直しを優先します。
+        </p>
+      </div>
+      <div class="ops-summary-actions">
+        <span class="priority-chip high">優先：SNSクリエイティブ確認</span>
+        <span class="priority-chip">次点：週末バナー差し替え</span>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">本日の予約数</span>
+          <div class="kpi-icon gold">01</div>
+        </div>
+        <div class="kpi-value" data-target="38" data-suffix="件">0件</div>
+        <div class="kpi-trend up">↑ 12% <span class="kpi-trend-label">前日比</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">問い合わせ件数</span>
+          <div class="kpi-icon blue">02</div>
+        </div>
+        <div class="kpi-value" data-target="14" data-suffix="件">0件</div>
+        <div class="kpi-trend up">↑ 3件 <span class="kpi-trend-label">前日比</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">本日の出勤人数</span>
+          <div class="kpi-icon green">03</div>
+        </div>
+        <div class="kpi-value" data-target="7" data-suffix="名">0名</div>
+        <div class="kpi-trend up">計画通り <span class="kpi-trend-label">シフト通り</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">広告クリック数</span>
+          <div class="kpi-icon orange">04</div>
+        </div>
+        <div class="kpi-value" data-target="521" data-suffix="">0</div>
+        <div class="kpi-trend down">↓ 8% <span class="kpi-trend-label">前日比</span></div>
+      </div>
+    </div>
+
+    <!-- Activity Cards -->
+    <div class="activity-row">
+      <div class="activity-card">
+        <div class="activity-card-title">週間予約数推移</div>
+        <div class="mini-chart">
+          <div class="mini-bar" title="月曜"></div>
+          <div class="mini-bar" title="火曜"></div>
+          <div class="mini-bar" title="水曜"></div>
+          <div class="mini-bar" title="木曜"></div>
+          <div class="mini-bar" title="金曜"></div>
+          <div class="mini-bar" title="土曜"></div>
+          <div class="mini-bar" title="日曜"></div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-title">最近のアクション</div>
+        <ul class="activity-list">
+          <li><span class="activity-list-name">お知らせ更新</span><span class="activity-list-val">10:24</span></li>
+          <li><span class="activity-list-name">バナー差し替え</span><span class="activity-list-val">09:51</span></li>
+          <li><span class="activity-list-name">出勤確認 (田中)</span><span class="activity-list-val">09:30</span></li>
+          <li><span class="activity-list-name">広告レポート確認</span><span class="activity-list-val">09:05</span></li>
+          <li><span class="activity-list-name">問い合わせ対応</span><span class="activity-list-val">昨日</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-kicker">Marketing Insight</div>
+        <div class="insight-title">週末前にTOPバナーを更新</div>
+        <p>土日の予約比率が高いため、金曜午前までに季節キャンペーン訴求へ差し替えると、自然流入と広告流入の受け皿を揃えられます。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-kicker">Operations Note</div>
+        <div class="insight-title">出勤遅延時は掲載情報を確認</div>
+        <p>少人数時間帯は問い合わせ返信が遅れやすいため、営業時間・予約枠・自動返信文の確認をセットで行います。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-kicker">Content Task</div>
+        <div class="insight-title">検索向けのお知らせを追加</div>
+        <p>「営業情報」「キャンペーン」カテゴリの記事を更新し、店舗名以外の検索流入にも対応できる導線を作ります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     Attendance Management
+     =========================== -->
+<section id="attendance">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <img src="assets/calendar-icon.svg" alt="" />
+      </div>
+      <div>
+        <div class="section-title">出勤<span>管理</span></div>
+        <div class="section-subtitle">本日のスタッフシフト・ステータス確認</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="table-controls">
+      <input type="text" class="table-search" id="staffSearch" placeholder="スタッフ名で検索..." />
+      <div class="filter-chips">
+        <button class="chip active" data-filter="all">すべて</button>
+        <button class="chip" data-filter="出勤中">出勤中</button>
+        <button class="chip" data-filter="遅刻">遅刻</button>
+        <button class="chip" data-filter="欠勤">欠勤</button>
+        <button class="chip" data-filter="退勤">退勤</button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>スタッフ</th>
+            <th>シフト</th>
+            <th>ステータス</th>
+            <th>メモ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="attendance-row" data-status="出勤中">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">田</div>
+                <div>
+                  <div class="staff-name">田中 美咲</div>
+                  <div class="staff-role">リーダー</div>
+                </div>
+              </div>
+            </td>
+            <td>10:00〜19:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-success">出勤中</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中" selected>出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">—</td>
+          </tr>
+          <tr class="attendance-row" data-status="出勤中">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">佐</div>
+                <div>
+                  <div class="staff-name">佐藤 由佳</div>
+                  <div class="staff-role">スタッフ</div>
+                </div>
+              </div>
+            </td>
+            <td>11:00〜20:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-success">出勤中</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中" selected>出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">—</td>
+          </tr>
+          <tr class="attendance-row" data-status="休憩中">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">鈴</div>
+                <div>
+                  <div class="staff-name">鈴木 彩花</div>
+                  <div class="staff-role">スタッフ</div>
+                </div>
+              </div>
+            </td>
+            <td>12:00〜21:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-info">休憩中</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中">出勤中</option>
+                  <option value="休憩中" selected>休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">13:00〜13:30 休憩</td>
+          </tr>
+          <tr class="attendance-row" data-status="遅刻">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">高</div>
+                <div>
+                  <div class="staff-name">高橋 なな</div>
+                  <div class="staff-role">スタッフ</div>
+                </div>
+              </div>
+            </td>
+            <td>10:00〜19:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-warning">遅刻</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中">出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻" selected>遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">30分遅延・電車遅延</td>
+          </tr>
+          <tr class="attendance-row" data-status="欠勤">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">伊</div>
+                <div>
+                  <div class="staff-name">伊藤 さくら</div>
+                  <div class="staff-role">アルバイト</div>
+                </div>
+              </div>
+            </td>
+            <td>13:00〜18:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-danger">欠勤</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中">出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤" selected>欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">体調不良・連絡済</td>
+          </tr>
+          <tr class="attendance-row" data-status="出勤中">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">木</div>
+                <div>
+                  <div class="staff-name">木村 みお</div>
+                  <div class="staff-role">スタッフ</div>
+                </div>
+              </div>
+            </td>
+            <td>14:00〜22:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-success">出勤中</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中" selected>出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤">退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">—</td>
+          </tr>
+          <tr class="attendance-row" data-status="退勤">
+            <td>
+              <div class="staff-cell">
+                <div class="staff-avatar">中</div>
+                <div>
+                  <div class="staff-name">中村 ゆか</div>
+                  <div class="staff-role">アルバイト</div>
+                </div>
+              </div>
+            </td>
+            <td>09:00〜13:00</td>
+            <td>
+              <div class="status-wrapper">
+                <span class="badge badge-muted">退勤</span>
+                <select aria-label="ステータス変更">
+                  <option value="出勤中">出勤中</option>
+                  <option value="休憩中">休憩中</option>
+                  <option value="退勤" selected>退勤</option>
+                  <option value="遅刻">遅刻</option>
+                  <option value="欠勤">欠勤</option>
+                </select>
+              </div>
+            </td>
+            <td class="memo-text">13:02 退勤済</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     Web Update Form
+     =========================== -->
+<section id="webupdate">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <span>W</span>
+      </div>
+      <div>
+        <div class="section-title">Web<span>更新フォーム</span></div>
+        <div class="section-subtitle">お知らせ・コンテンツの投稿・下書き管理</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="form-grid">
+      <!-- Form -->
+      <div class="form-panel">
+        <div class="form-group">
+          <label class="form-label" for="articleTitle">
+            タイトル<span class="required">*</span>
+          </label>
+          <input
+            id="articleTitle"
+            type="text"
+            class="form-input"
+            placeholder="例：夏季休業のお知らせ"
+            maxlength="80"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="articleCategory">カテゴリ</label>
+          <select id="articleCategory" class="form-select">
+            <option>お知らせ</option>
+            <option>キャンペーン</option>
+            <option>スタッフ募集</option>
+            <option>営業情報</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="articleBody">本文</label>
+          <textarea
+            id="articleBody"
+            class="form-textarea"
+            placeholder="ここに本文を入力してください。入力内容は右側のプレビューにリアルタイムで反映されます。"
+            rows="6"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">公開設定</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="pubStatus" value="publish" />
+              公開
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="pubStatus" value="draft" checked />
+              下書き
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" id="formSubmit">投稿する</button>
+          <button class="btn btn-outline" id="formDraft">下書き保存</button>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="preview-panel">
+        <div class="preview-header">
+          <span class="preview-title-bar">プレビュー</span>
+          <div class="preview-dots">
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+          </div>
+        </div>
+        <div class="preview-body">
+          <div class="preview-empty" id="previewEmpty">
+            <span class="preview-empty-mark">NO DATA</span>
+            タイトルまたは本文を入力すると<br>プレビューが表示されます
+          </div>
+          <div id="previewContent" class="hidden">
+            <div class="preview-status-bar">
+              <span class="badge badge-muted" id="previewStatus">下書き</span>
+              <span class="preview-status-text" id="previewDate"></span>
+            </div>
+            <div class="preview-article-title" id="previewTitle"></div>
+            <div class="preview-article-body" id="previewBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-queue">
+      <div class="activity-card-title">更新優先度</div>
+      <div class="queue-list">
+        <div class="queue-item">
+          <span class="queue-status high">本日</span>
+          <div>
+            <strong>週末キャンペーン告知</strong>
+            <p>広告流入の受け皿としてTOP掲載。タイトルに地域名とキャンペーン内容を含める。</p>
+          </div>
+        </div>
+        <div class="queue-item">
+          <span class="queue-status">明日</span>
+          <div>
+            <strong>営業時間のお知らせ</strong>
+            <p>出勤体制に合わせて予約可能時間を再確認。問い合わせ削減を狙う。</p>
+          </div>
+        </div>
+        <div class="queue-item">
+          <span class="queue-status low">今週</span>
+          <div>
+            <strong>よくある質問の追記</strong>
+            <p>問い合わせの多い内容をページ化し、検索流入と対応工数の両方を改善する。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     Ad Analysis
+     =========================== -->
+<section id="ad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <img src="assets/ad-icon.svg" alt="" />
+      </div>
+      <div>
+        <div class="section-title">広告<span>反響チェック</span></div>
+        <div class="section-subtitle">媒体別パフォーマンス・CV率の集計確認</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Summary -->
+    <div class="ad-summary">
+      <div class="ad-summary-card">
+        <div class="ad-summary-val" id="summaryImps">—</div>
+        <div class="ad-summary-label">総表示回数</div>
+      </div>
+      <div class="ad-summary-card">
+        <div class="ad-summary-val" id="summaryClicks">—</div>
+        <div class="ad-summary-label">総クリック数</div>
+      </div>
+      <div class="ad-summary-card">
+        <div class="ad-summary-val" id="summaryInqs">—</div>
+        <div class="ad-summary-label">総問い合わせ</div>
+      </div>
+    </div>
+
+    <div class="ad-table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>媒体名</th>
+            <th>表示回数</th>
+            <th>クリック数</th>
+            <th>CTR</th>
+            <th>問い合わせ数</th>
+            <th>CV率（自動計算）</th>
+            <th>判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ad-row" data-imp="18500" data-click="312" data-inq="28">
+            <td><strong>媒体A（検索）</strong></td>
+            <td>18,500</td>
+            <td>312</td>
+            <td class="cell-ctr">—</td>
+            <td>28</td>
+            <td class="cell-cvr">—</td>
+            <td><span class="decision-badge keep">継続</span></td>
+          </tr>
+          <tr class="ad-row" data-imp="24200" data-click="145" data-inq="11">
+            <td><strong>媒体B（SNS）</strong></td>
+            <td>24,200</td>
+            <td>145</td>
+            <td class="cell-ctr">—</td>
+            <td>11</td>
+            <td class="cell-cvr">—</td>
+            <td><span class="decision-badge check">要改善</span></td>
+          </tr>
+          <tr class="ad-row" data-imp="9800" data-click="64" data-inq="9">
+            <td><strong>媒体C（ポータル）</strong></td>
+            <td>9,800</td>
+            <td>64</td>
+            <td class="cell-ctr">—</td>
+            <td>9</td>
+            <td class="cell-cvr">—</td>
+            <td><span class="decision-badge keep">拡大候補</span></td>
+          </tr>
+          <tr class="ad-row" data-imp="5300" data-click="41" data-inq="6">
+            <td><strong>媒体D（ブログ）</strong></td>
+            <td>5,300</td>
+            <td>41</td>
+            <td class="cell-ctr">—</td>
+            <td>6</td>
+            <td class="cell-cvr">—</td>
+            <td><span class="decision-badge keep">育成</span></td>
+          </tr>
+          <tr class="ad-row" data-imp="3100" data-click="22" data-inq="3">
+            <td><strong>媒体E（その他）</strong></td>
+            <td>3,100</td>
+            <td>22</td>
+            <td class="cell-ctr">—</td>
+            <td>3</td>
+            <td class="cell-cvr">—</td>
+            <td><span class="decision-badge pause">保留</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="6" style="text-align:right;padding:13px 16px;font-size:0.78rem;color:var(--color-text-muted);font-weight:700;letter-spacing:0.04em;">総合 CV率</td>
+            <td style="padding:13px 16px;">
+              <span class="cv-val" id="totalCVR">—</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="ad-note">
+      <span class="ad-note-icon">ℹ</span>
+      <span>CV率（コンバージョン率）= 問い合わせ数 ÷ クリック数 × 100。媒体ごとの反響差を数値で確認し、掲載内容や予算配分の見直しに活用します。</span>
+    </div>
+
+    <div class="action-panel">
+      <div class="activity-card-title">広告運用メモ</div>
+      <ul class="action-list">
+        <li><strong>媒体A：</strong>CV率が安定。検索語句とLP内の見出しを合わせ、予算は現状維持。</li>
+        <li><strong>媒体B：</strong>表示回数に対してクリックが弱い。画像と冒頭文を2パターンで差し替え。</li>
+        <li><strong>媒体C：</strong>クリック数は少ないがCV率が高い。掲載枠の追加を検討。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     Banner Management
+     =========================== -->
+<section id="banner">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <span>B</span>
+      </div>
+      <div>
+        <div class="section-title">バナー<span>管理</span></div>
+        <div class="section-subtitle">掲載バナーの確認・差し替えリクエスト</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="banner-grid">
+      <!-- Banner 1 -->
+      <div class="banner-card">
+        <div class="banner-img-wrapper">
+          <img src="assets/banner-main.jpg" alt="トップページメインバナー" />
+          <div class="banner-overlay">
+            <button class="btn btn-sm btn-outline banner-replace-btn">差し替え</button>
+          </div>
+        </div>
+        <div class="banner-info">
+          <div class="banner-title">トップページ メインバナー</div>
+          <div class="banner-alt">alt: キャンペーン告知バナー 640×240px</div>
+          <div class="banner-performance">
+            <span>CTR 2.4%</span>
+            <span>最終更新 6/5</span>
+          </div>
+          <div class="banner-meta">
+            <span class="banner-placement">掲載場所：TOP / ヒーロー</span>
+            <span class="badge badge-success">掲載中</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner 2 -->
+      <div class="banner-card">
+        <div class="banner-img-wrapper">
+          <img src="assets/banner-sidebar.jpg" alt="サイドバー広告バナー" />
+          <div class="banner-overlay">
+            <button class="btn btn-sm btn-outline banner-replace-btn">差し替え</button>
+          </div>
+        </div>
+        <div class="banner-info">
+          <div class="banner-title">サイドバー 広告バナー</div>
+          <div class="banner-alt">alt: お知らせバナー 300×250px</div>
+          <div class="banner-performance">
+            <span>CTR 0.8%</span>
+            <span>改善候補</span>
+          </div>
+          <div class="banner-meta">
+            <span class="banner-placement">掲載場所：サイドバー</span>
+            <span class="badge badge-warning">要確認</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner 3 -->
+      <div class="banner-card">
+        <div class="banner-img-wrapper">
+          <img src="assets/banner-footer.jpg" alt="フッター広告バナー" />
+          <div class="banner-overlay">
+            <button class="btn btn-sm btn-outline banner-replace-btn">差し替え</button>
+          </div>
+        </div>
+        <div class="banner-info">
+          <div class="banner-title">フッター バナー</div>
+          <div class="banner-alt">alt: フッター告知バナー 728×90px</div>
+          <div class="banner-performance">
+            <span>CTR -</span>
+            <span>再開待ち</span>
+          </div>
+          <div class="banner-meta">
+            <span class="banner-placement">掲載場所：フッター</span>
+            <span class="badge badge-muted">掲載停止</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     Improvement Notes
+     =========================== -->
+<section id="improvement">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">
+        <span>M</span>
+      </div>
+      <div>
+        <div class="section-title">改善<span>メモ</span></div>
+        <div class="section-subtitle">日次確認から次の施策へつなげるための運用メモ</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="improvement-grid">
+      <div class="improvement-card">
+        <div class="improvement-label">01 / 集客</div>
+        <h3>検索媒体は維持、SNSは訴求を再検証</h3>
+        <p>問い合わせ単価を下げるため、CV率の高い検索媒体を維持しつつ、SNSは画像・見出し・遷移先の整合性を確認します。</p>
+      </div>
+      <div class="improvement-card">
+        <div class="improvement-label">02 / コンテンツ</div>
+        <h3>お知らせ更新をSEO導線として活用</h3>
+        <p>営業情報だけでなく、季節キャンペーン・よくある質問・予約方法を記事化し、指名検索以外の流入を増やします。</p>
+      </div>
+      <div class="improvement-card">
+        <div class="improvement-label">03 / 現場運用</div>
+        <h3>人員状況とWeb表示をセットで確認</h3>
+        <p>出勤状況に応じて予約枠・問い合わせ文言・バナー訴求を調整し、来店前後の体験差を減らします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===========================
+     Footer
+     =========================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">店舗Web運用管理ボード</div>
+    <p class="footer-text">
+      本サイトはWeb運営スタッフ求人応募用のポートフォリオとして制作した管理画面サンプルです。<br>
+      実在の店舗・企業・個人とは一切関係ありません。
+    </p>
+    <div class="footer-links">
+      <a href="#dashboard">トップへ戻る</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="README.md" target="_blank">README</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+  const previewDate = document.getElementById('previewDate');
+  if (previewDate) {
+    const now = new Date();
+    previewDate.textContent = now.toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric' });
+  }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
