@@ -1,5 +1,7 @@
 # 店舗Web運用管理ボード
 
+**デモサイト → https://ssk-t0.github.io/shop-web-operation-demo/**
+
 Web運営スタッフの求人応募用に制作した、管理画面型のポートフォリオです。
 店舗運営に関わる**Web更新・出勤管理・広告反響確認・改善アクション管理**を想定し、HTML/CSS/Vanilla JavaScriptのみで実装しています。
 
