@@ -2,6 +2,7 @@
    CSS Custom Properties
    =========================== */
 :root {
+  color-scheme: light;
   --color-bg: #f4f6f8;
   --color-surface: #ffffff;
   --color-surface-2: #ffffff;
@@ -15,6 +16,10 @@
   --color-text: #1f2933;
   --color-text-muted: #667085;
   --color-text-dim: #98a2b3;
+  --color-nav-bg: rgba(255,255,255,0.94);
+  --color-mobile-menu-bg: rgba(255,255,255,0.98);
+  --color-solid-surface: #ffffff;
+  --color-image-bg: #eef2f5;
   --color-success: #17845b;
   --color-warning: #b56b16;
   --color-danger: #c2413f;
@@ -26,6 +31,33 @@
   --shadow-gold: 0 12px 28px rgba(47, 111, 143, 0.1);
   --transition: 0.2s ease;
   --nav-height: 64px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #101820;
+  --color-surface: #151f29;
+  --color-surface-2: #1b2733;
+  --color-surface-3: #223140;
+  --color-border: #334556;
+  --color-border-light: #405366;
+  --color-gold: #66b4d6;
+  --color-gold-light: #8ccbeb;
+  --color-gold-dim: rgba(102, 180, 214, 0.14);
+  --color-gold-glow: rgba(102, 180, 214, 0.16);
+  --color-text: #edf4f8;
+  --color-text-muted: #aec0cc;
+  --color-text-dim: #7f93a1;
+  --color-nav-bg: rgba(21,31,41,0.94);
+  --color-mobile-menu-bg: rgba(21,31,41,0.98);
+  --color-solid-surface: #1b2733;
+  --color-image-bg: #223140;
+  --color-success: #5bd09c;
+  --color-warning: #f1b66a;
+  --color-danger: #ff8a86;
+  --color-info: #7ec4e5;
+  --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.28);
+  --shadow-gold: 0 14px 30px rgba(102, 180, 214, 0.16);
 }
 
 /* ===========================
@@ -41,6 +73,7 @@ body {
   font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
 }
 
 a { color: var(--color-gold); text-decoration: none; transition: color var(--transition); }
@@ -57,7 +90,7 @@ img, svg { display: block; max-width: 100%; }
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-height);
-  background: rgba(255,255,255,0.94);
+  background: var(--color-nav-bg);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(12px);
   z-index: 1000;
@@ -116,6 +149,42 @@ img, svg { display: block; max-width: 100%; }
   margin-left: auto;
 }
 
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.theme-toggle:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-dim);
+}
+.theme-toggle-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-gold-dim);
+  color: var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
 .nav-badge {
   display: flex;
   align-items: center;
@@ -165,7 +234,7 @@ img, svg { display: block; max-width: 100%; }
   position: fixed;
   top: var(--nav-height);
   left: 0; right: 0;
-  background: rgba(255,255,255,0.98);
+  background: var(--color-mobile-menu-bg);
   border-bottom: 1px solid var(--color-border);
   padding: 16px;
   z-index: 999;
@@ -332,7 +401,7 @@ section { padding: 72px 0; }
   display: inline-flex;
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: #fff;
+  background: var(--color-solid-surface);
   color: var(--color-text-muted);
   font-size: 0.74rem;
   font-weight: 700;
@@ -984,7 +1053,7 @@ tbody tr:hover { background: var(--color-surface-3); }
   position: relative;
   overflow: hidden;
   height: 120px;
-  background: #eef2f5;
+  background: var(--color-image-bg);
 }
 .banner-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -1199,6 +1268,8 @@ footer {
 @media (max-width: 720px) {
   section { padding: 52px 0; }
   .nav-links, .nav-badge { display: none; }
+  .theme-toggle-text { display: none; }
+  .theme-toggle { padding: 5px 7px; }
   .hamburger { display: flex; }
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .ad-summary { grid-template-columns: 1fr; }

@@ -1,6 +1,35 @@
 'use strict';
 
 // ===========================
+// Theme Toggle
+// ===========================
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleIcon = themeToggle?.querySelector('.theme-toggle-icon');
+const themeToggleText = themeToggle?.querySelector('.theme-toggle-text');
+const THEME_STORAGE_KEY = 'shopWebOperationTheme';
+
+function applyTheme(theme) {
+  const isDark = theme === 'dark';
+  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+
+  if (!themeToggle) return;
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+  themeToggle.setAttribute('aria-label', isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え');
+  if (themeToggleIcon) themeToggleIcon.textContent = isDark ? '☀' : '☾';
+  if (themeToggleText) themeToggleText.textContent = isDark ? 'Light' : 'Dark';
+}
+
+const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+themeToggle?.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  applyTheme(nextTheme);
+  showToast(`${nextTheme === 'dark' ? 'ダーク' : 'ライト'}モードに切り替えました`);
+});
+
+// ===========================
 // Hamburger Menu
 // ===========================
 const hamburger = document.getElementById('hamburger');
